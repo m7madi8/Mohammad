@@ -1,322 +1,387 @@
-<selected_code>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammad</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        .home {
+            position: relative;
+            overflow: hidden;
+        }
+        .home canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1; 
+        }
+    </style>
+</head>
+<body>
+    <!-- Professional Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <div class="loader-text">Loading...</div>
+        </div>
+    </div>
 
-    <file file_path=index.html>
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Mohammad</title>
-        <link rel="stylesheet" href="style.css">
-        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-        <style>
-            body {
-                margin: 0;
-                overflow: hidden;
-                background-color: #081b29; 
-            }
-            .home {
-                position: relative;
-                overflow: hidden;
-            }
-            .home canvas {
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: -1; 
-            }
-        </style>
-    </head>
-    <body>
-        <header class="header fade-in">
-            <a href="#" class="logo">Mohammad</a>
-            <i class='bx bx-menu' id="menu-icon"></i>
-            <nav class="navbar">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#education">Education</a>
-                <a href="#projects">Projects</a>
-                <a href="#skills">Skills</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </header>
-    
-        <section class="home fade-in" id="home">
-            <div class="home-content">
-                <h1 class="slide-in-left">Hi, I'm <span>Mohammad Hroub</span></h1>
-                <div class="text-animation slide-in-right">
-                    <h3>Frontend Developer</h3>
-                </div>
-                <p class="highlight">Mohammad. Creative and Frontend Developer with a strong background
-                     in developing and designing websites and web applications using the latest technologies. 
-                     Passionate about transforming designs into interactive and seamless user interfaces,
-                     focusing on user experience and best coding practices.</p>
-                <div class="btn-box fade-in">
-                    
-                    <a href="#contact" class="btn">Let's talk</a>
-                </div>
+    <header class="header fade-in">
+        <a href="#" class="logo">Mohammad</a>
+        <div id="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#education">Education</a>
+            <a href="#certificates">Certificates</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- 🏆 الأولوية القصوى: Home -->
+    <section class="home fade-in" id="home">
+        <div class="home-content">
+            <h1>Hi, I'm <span>Mohammad Hroub</span></h1>
+            <div class="text-animation slide-in-right">
+                <h3 class="elegant-title">Frontend Developer</h3>
             </div>
-    
-            <div class="home-sci zoom-in">
-                <a target="_blank" href="https://www.linkedin.com/in/mohammad-hroub-798bab293/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class='bx bxl-linkedin' ></i></a>
-                <a target="_blank" href="https://www.instagram.com/m7madi8?igsh=ODR6aDhhMzJrajg2"><i class='bx bxl-instagram'></i></a>
+            <p class="highlight">Mohammad. Creative and Frontend Developer with a strong background
+                 in developing and designing websites and web applications using the latest technologies. 
+                 Passionate about transforming designs into interactive and seamless user interfaces,
+                 focusing on user experience and best coding practices.</p>
+            <div class="btn-box fade-in">
+                
+                <a href="#contact" class="btn">Let's talk</a>
             </div>
-        </section>
+        </div>
+
+        <div class="home-sci zoom-in">
+            <a target="_blank" href="https://www.linkedin.com/in/mohammad-hroub-798bab293/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class='bx bxl-linkedin' ></i></a>
+            <a target="_blank" href="https://www.instagram.com/m7madi8?igsh=ODR6aDhhMzJrajg2"><i class='bx bxl-instagram'></i></a>
+        </div>
+    </section>
+    
+    <!-- 🥇 الأولوية العالية: About -->
+    <section class="about fade-in" id="about">
+        <h2 class="heading slide-in-left">About <span>Me</span></h2>
+        <div class="heading-underline"></div>
         
-        <section class="about fade-in" id="about">
-            <h2 class="heading slide-in-left">About <span>Me</span></h2>
+        <div class="about-img">
+            <img src="1.png" alt="Profile Image">
+            <span class="circle-spin"></span>
+        </div>
+        <div class="about-content highlight">
+            <h3 class="slide-in-right">Frontend Developer!</h3>
+            <p class="fade-in">
+                I constantly strive for innovation and use modern tools and techniques to ensure high performance and responsiveness.
+                Proficient in HTML, CSS, JavaScript, and frameworks such as React and Angular, as well as state management tools like Redux and Context API.
+                I believe in the importance of teamwork and effective communication, always aiming to achieve project goals and exceed client expectations.
+            </p>
+        </div>
+        <!--  
+        <div class="btn-box btns fade-in">
             
-            <div class="about-img">
-                <img src="m7.png" alt="Profile Image">
-                <span class="circle-spin"></span>
+            <a download="" href="MyCV.txt" class="btn">
+                <i class='bx bx-down-arrow-alt'></i>
+                My CV
+            </a>
+        </div>
+        -->
+    </section>
+
+    <!-- 🥇 الأولوية العالية: Skills -->
+    <section class="skills fade-in" id="skills">
+        <h2 class="heading slide-in-left">My <span>Skills</span></h2>
+        <div class="heading-underline"></div>
+
+        <div class="skills-row">
+            <div class="skills-column">
+                <h3 class="title slide-in-right">Coding Skills </h3>
+
+                <div class="skills-box">
+                    <div class="skills-content highlight">
+                        <div class="progress fade-in">
+                            <h3>HTML <span>90%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+
+                        <div class="progress fade-in">
+                            <h3>CSS <span>75%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+                        
+                        <div class="progress fade-in">
+                            <h3>Javascript <span>65%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+
+                        <div class="progress fade-in">
+                            <h3>React <span>45%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+
+                        <div class="progress fade-in">
+                            <h3>Bootstrap <span>80%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-            <div class="about-content highlight">
-                <h3 class="slide-in-right">Frontend Developer!</h3>
-                <p class="fade-in">
-                    I constantly strive for innovation and use modern tools and techniques to ensure high performance and responsiveness.
-                    Proficient in HTML, CSS, JavaScript, and frameworks such as React and Angular, as well as state management tools like Redux and Context API.
-                    I believe in the importance of teamwork and effective communication, always aiming to achieve project goals and exceed client expectations.
-                </p>
+            <div class="skills-column">
+                <h3 class="title slide-in-right">Professional Skills </h3>
+
+                <div class="skills-box">
+                    <div class="skills-content highlight">
+                        <div class="progress fade-in">
+                            <h3>Web Design <span>95%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+
+                        <div class="progress fade-in">
+                            <h3>Web Development <span>70%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+                        
+                        <div class="progress fade-in">
+                            <h3>Graphic Design <span>85%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-            <!--  
-            <div class="btn-box btns fade-in">
+
+        </div>
+    </section>
+
+    <!-- 🥈 الأولوية المتوسطة: Projects -->
+    <section class="projects " id="projects">
+        <h2 class="heading slide-in-right">Latest <span>Projects</span></h2>
+        <div class="heading-underline"></div>
+
+        <div class="projects-container ">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="projects2.png" alt="99 Cafe Menu">
+                    <div class="project-overlay">
+                        <div class="project-links">
+                            <a href="https://m7madi8.github.io/99cafe-menu/" target="_blank" class="project-link">
+                                <i class='bx bx-link-external'></i>
+                                <span>View Live</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                                        <div class="project-content">
+                    <div class="project-category">Cafe Menu</div>
+                    <h3 class="project-title">99 Cafe</h3>
+                    <p class="project-description">An elegant and modern digital menu for 99 Cafe featuring a beautiful design with smooth animations and user-friendly navigation.</p>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="projects1.png" alt="Chuckeese Restaurant Job Portal">
+                    <div class="project-overlay">
+                        <div class="project-links">
+                            <a href="https://m7madi8.github.io/jobs.chuckeese/" target="_blank" class="project-link">
+                                <i class='bx bx-link-external'></i>
+                                <span>View Live</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                                        <div class="project-content">
+                    <div class="project-category">Job Portal</div>
+                    <h3 class="project-title">Chuckeese Restaurant</h3>
+                    <p class="project-description">A professional job application portal designed for Chuckeese restaurant to receive and manage employment applications with an elegant and user-friendly interface.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🥈 الأولوية المتوسطة: Education -->
+    <section class="education fade-in" id="education">
+        <h2 class="heading slide-in-left">My<span> Journey</span></h2>
+        <div class="heading-underline"></div>
+
+        <div class="education-row">
+            <div class="education-column">
+                <h3 class="title slide-in-right">Education</h3>
+
+                <div class="education-box">
+                    <div class="education-content highlight">
+                        <div class="content fade-in">
+                            <div class="year"><i class='bx bxs-calendar' ></i>2017</div>
+                            <h3>Kotlin-High School</h3>
+                            <p>I learned Kotlin, the perfect programming language for developing Android apps. It is flexible and secure, 
+                                allowing me to develop high-performance apps with clean and efficient code.</p>
+                        </div>
+                    </div>
+
+                    <div class="education-content highlight">
+                        <div class="content fade-in">
+                            <div class="year"><i class='bx bxs-calendar' ></i>2020-2022</div>
+                            <h3>CSS + JS</h3>
+                            <p>CSS:
+                                I learned CSS to style and design web pages in an aesthetic and professional way. 
+                                I can use it to build responsive and attractive designs that fit all devices.
+                                <br>
+                                JavaScript:
+                                I mastered JavaScript to create dynamic interactions on web pages.
+                                 I use it to enhance the user experience and add advanced functionality such as animation and data interaction</p>
+                        </div>
+                    </div>
+
+                    <div class="education-content highlight">
+                        <div class="content fade-in">
+                            <div class="year"><i class='bx bxs-calendar' ></i>2024-2025</div>
+                            <h3>Python</h3>
+                            <p>I am currently learning Python, a powerful and easy-to-use programming language. 
+                                I use it for software development and automation solutions,
+                                 and it is ideal for projects that require simple and clear code.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+
+            <div class="education-column">
+                <h3 class="title slide-in-right">Experiences</h3>
                 
-                <a download="" href="MyCV.txt" class="btn">
-                    <i class='bx bx-down-arrow-alt'></i>
-                    My CV
-                </a>
+                <div class="education-box">
+                    <div class="education-content highlight">
+                        <div class="content fade-in">
+                            <div class="year"><i class='bx bxs-calendar' ></i>2020</div>
+                            <h3>Android applications</h3>
+                            <p>I learned Android app development using Kotlin, 
+                                a modern programming language that is efficient and flexible.
+                                 I use Kotlin to build high-performance Android apps with attractive and interactive user interfaces, 
+                                allowing me to develop innovative and seamless solutions that meet user needs.</p>
+                        </div>
+                    </div>
+
+                    <div class="education-content highlight">
+                        <div class="content fade-in">
+                            <div class="year"><i class='bx bxs-calendar' ></i>2022</div>
+                            <h3>Front-end Developer</h3>
+                            <p>I have experience in front-end development and design using HTML, CSS, and JavaScript. 
+                                I build interactive and engaging websites and web applications,
+                                 ensuring a smooth and responsive user experience across all devices.
+                                 I use modern technologies such as Flexbox and Grid to achieve innovative and user-friendly designs.</p>
+                        </div>
+                    </div>
+
+                    <div class="education-content highlight">
+                        <div class="content fade-in">
+                            <div class="year"><i class='bx bxs-calendar' ></i>2024</div>
+                            <h3>Back-end Developer</h3>
+                            <p>I have a good background in back-end programming, where I deal with servers 
+                                and databases to ensure that applications run smoothly and efficiently.
+                                 I use technologies and frameworks such as Node.js and Python to build APIs and
+                                  develop solutions that support user interfaces. 
+                                I am also able to improve application performance,
+                                 ensure data security and system integrity.</p>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            -->
-        </section>
+        </div>
+    </section>
+
+    <!-- 🥉 الأولوية الإضافية: Certificates -->
+    <section class="certificates fade-in" id="certificates">
+        <h2 class="heading slide-in-left">My <span>Certificates</span></h2>
+        <div class="heading-underline"></div>
         
-    
-        <section class="education fade-in" id="education">
-            <h2 class="heading slide-in-left">My<span>Journey</span></h2>
-    
-            <div class="education-row">
-                <div class="education-column">
-                    <h3 class="title slide-in-right">Education</h3>
-    
-                    <div class="education-box">
-                        <div class="education-content highlight">
-                            <div class="content fade-in">
-                                <div class="year"><i class='bx bxs-calendar' ></i>2017</div>
-                                <h3>Kotlin-High School</h3>
-                                <p>I learned Kotlin, the perfect programming language for developing Android apps. It is flexible and secure, 
-                                    allowing me to develop high-performance apps with clean and efficient code.</p>
-                            </div>
+        <div class="certificates-container">
+            <div class="certificate-card">
+                <div class="certificate-image">
+                    <img src="Certificates/meta1.png" alt="Meta Frontend Development Certificate" style="pointer-events: none; user-select: none;">
+                    <div class="certificate-overlay">
+                        <div class="certificate-links">
+                            <a href="https://www.coursera.org/account/accomplishments/verify/FCDVBCLSOV4E?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=pdf_header_button&utm_product=course" target="_blank" class="certificate-link">
+                                <i class='bx bx-link-external'></i>
+                                <span>Verify Certificate</span>
+                            </a>
                         </div>
-    
-                        <div class="education-content highlight">
-                            <div class="content fade-in">
-                                <div class="year"><i class='bx bxs-calendar' ></i>2020-2022</div>
-                                <h3>CSS + JS</h3>
-                                <p>CSS:
-                                    I learned CSS to style and design web pages in an aesthetic and professional way. 
-                                    I can use it to build responsive and attractive designs that fit all devices.
-                                    <br>
-                                    JavaScript:
-                                    I mastered JavaScript to create dynamic interactions on web pages.
-                                     I use it to enhance the user experience and add advanced functionality such as animation and data interaction</p>
-                            </div>
-                        </div>
-    
-                        <div class="education-content highlight">
-                            <div class="content fade-in">
-                                <div class="year"><i class='bx bxs-calendar' ></i>2024-2025</div>
-                                <h3>Python</h3>
-                                <p>I am currently learning Python, a powerful and easy-to-use programming language. 
-                                    I use it for software development and automation solutions,
-                                     and it is ideal for projects that require simple and clear code.</p>
-                            </div>
-                        </div>
-    
                     </div>
                 </div>
-                
-    
-                <div class="education-column">
-                    <h3 class="title slide-in-right">Experiences</h3>
-                    
-                    <div class="education-box">
-                        <div class="education-content highlight">
-                            <div class="content fade-in">
-                                <div class="year"><i class='bx bxs-calendar' ></i>2020</div>
-                                <h3>Android applications</h3>
-                                <p>I learned Android app development using Kotlin, 
-                                    a modern programming language that is efficient and flexible.
-                                     I use Kotlin to build high-performance Android apps with attractive and interactive user interfaces, 
-                                    allowing me to develop innovative and seamless solutions that meet user needs.</p>
-                            </div>
-                        </div>
-    
-                        <div class="education-content highlight">
-                            <div class="content fade-in">
-                                <div class="year"><i class='bx bxs-calendar' ></i>2022</div>
-                                <h3>Front-end Developer</h3>
-                                <p>I have experience in front-end development and design using HTML, CSS, and JavaScript. 
-                                    I build interactive and engaging websites and web applications,
-                                     ensuring a smooth and responsive user experience across all devices.
-                                     I use modern technologies such as Flexbox and Grid to achieve innovative and user-friendly designs.</p>
-                            </div>
-                        </div>
-    
-                        <div class="education-content highlight">
-                            <div class="content fade-in">
-                                <div class="year"><i class='bx bxs-calendar' ></i>2024</div>
-                                <h3>Back-end Developer</h3>
-                                <p>I have a good background in back-end programming, where I deal with servers 
-                                    and databases to ensure that applications run smoothly and efficiently.
-                                     I use technologies and frameworks such as Node.js and Python to build APIs and
-                                      develop solutions that support user interfaces. 
-                                    I am also able to improve application performance,
-                                     ensure data security and system integrity.</p>
-                            </div>
-                        </div>
-    
-                    </div>
+                <div class="certificate-content">
+                    <div class="certificate-category">Meta</div>
+                    <h3 class="certificate-title">Introduction to Front-End Development</h3>
+                    <p class="certificate-description">Completed the Meta Front-End Development course on Coursera. Learned HTML, CSS, JavaScript, Bootstrap, and responsive web design. Course duration: 19 hours with 4.8/5 rating from 13,089 students.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="projects " id="projects">
-            <h2 class="heading slide-in-right">Latest <span>Projects</span></h2>
+    <!-- 🥉 الأولوية الإضافية: Contact -->
+    <section class="contact fade-in" id="contact">
+        <h2 class="heading slide-in-left">Contact <span>Me</span></h2>
+        <div class="heading-underline"></div>
 
-            <div class="projects-container ">
-                <div class="projects-box ">
-                    <img src="projects1.png" alt="">
-                    <div class="projects-layer">
-                        <h4>Web Design</h4>
-                        <p>
-
-                        </p>
-                             <a target="_blank" href="https://m7madi8.github.io/majdals/"><i class='bx bx-link-external' ></i></a>
-                    </div>
-                </div>
-               <!-- 
-                <div class="projects-box ">
-                    <img src="projects2.png" alt="">
-                    <div class="projects-layer">
-                        <h4>Weather Wise</h4>
-                        <p>
-
-                        </p>
-                             <a target="_blank" href="https://m7madi8.github.io/WeatherWise/"><i class='bx bx-link-external' ></i></a>
-                    </div>
-                </div> 
-                -->
-            </div>
-        </section>
-    
-        <section class="skills fade-in" id="skills">
-            <h2 class="heading slide-in-left">My <span>Skills</span></h2>
-    
-            <div class="skills-row">
-                <div class="skills-column">
-                    <h3 class="title slide-in-right">Coding Skills </h3>
-    
-                    <div class="skills-box">
-                        <div class="skills-content highlight">
-                            <div class="progress fade-in">
-                                <h3>HTML <span>90%</span></h3>
-                                <div class="bar"><span></span></div>
-                            </div>
-    
-                            <div class="progress fade-in">
-                                <h3>CSS <span>75%</span></h3>
-                                <div class="bar"><span></span></div>
-                            </div>
-                            
-                            <div class="progress fade-in">
-                                <h3>Javascript <span>10%</span></h3>
-                                <div class="bar"><span></span></div>
-                            </div>
-    
-                        </div>
-                    </div>
-                </div>
-                <div class="skills-column">
-                    <h3 class="title slide-in-right">Professional Skills </h3>
-    
-                    <div class="skills-box">
-                        <div class="skills-content highlight">
-                            <div class="progress fade-in">
-                                <h3>Web Design <span>95%</span></h3>
-                                <div class="bar"><span></span></div>
-                            </div>
-    
-                            <div class="progress fade-in">
-                                <h3>Web Development <span>70%</span></h3>
-                                <div class="bar"><span></span></div>
-                            </div>
-                            
-                            <div class="progress fade-in">
-                                <h3>Graphic Design <span>85%</span></h3>
-                                <div class="bar"><span></span></div>
-                            </div>
-    
-                        </div>
-                    </div>
-                </div>
-    
-            </div>
-        </section>
-    
-        <section class="contact fade-in" id="contact">
-            <h2 class="heading slide-in-left">Contact <span>Me</span></h2>
-    
-            <form target="_blank" id="contact-form" action="https://formspree.io/f/xanyzgde"
-            method="POST">
-                <div class="input-box">
-                    <div class="input-field fade-in">
-                        <input type="text" name="name" placeholder="Full Name" required>
-                        <span class="focus"></span>
-                    </div>
-    
-                    <div class="input-field fade-in">
-                        <input type="email" name="email" placeholder="Email Address" required>
-                        <span class="focus"></span>
-                    </div>
-    
-                    <div class="input-field fade-in">
-                        <input type="tel" name="phone" placeholder="Mobile Phone" required>
-                        <span class="focus"></span>
-                    </div>
-    
-                    <div class="input-field fade-in">
-                        <input type="text" name="subject" placeholder="Email Subject" required>
-                        <span class="focus"></span>
-                    </div>
-                </div>
-                <div class="textarea-field fade-in">
-                    <textarea name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+        <form target="_blank" id="contact-form" action="https://formspree.io/f/xanyzgde"
+        method="POST">
+            <div class="input-box">
+                <div class="input-field fade-in">
+                    <input type="text" name="name" placeholder="Full Name" required>
                     <span class="focus"></span>
                 </div>
-                <div class="btn-box btns fade-in">
-                    <button type="submit" class="btn">Submit</button>
+
+                <div class="input-field fade-in">
+                    <input type="email" name="email" placeholder="Email Address" required>
+                    <span class="focus"></span>
                 </div>
-                
-            </form>
+
+                <div class="input-field fade-in">
+                    <input type="tel" name="phone" placeholder="Mobile Phone" required>
+                    <span class="focus"></span>
+                </div>
+
+                <div class="input-field fade-in">
+                    <input type="text" name="subject" placeholder="Email Subject" required>
+                    <span class="focus"></span>
+                </div>
+            </div>
+            <div class="textarea-field fade-in">
+                <textarea name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+                <span class="focus"></span>
+            </div>
+            <div class="btn-box btns fade-in">
+                <button type="submit" class="btn">Submit</button>
+            </div>
             
-        </section>
-    
-        <footer class="footer fade-in">
-           <div class="footer-text">
-                <p>Copyright &copy; 2024 by Mohammad | All Rights Reserved.</p>
-                </div>
-                <div class="footer-iconTop zoom-in">
-                 <a href=""><i class='bx bx-up-arrow-alt'></i></a>
-                </div>
-                
-        </footer>
-       
-        <audio id="background-music" autoplay loop>
-            <source src="jazz.mp3" type="audio/mpeg">
-            Your browser does not support the audio tag.
-          </audio>
-        <script src="script.js"></script>
-    </body>
-    </html>
-    </file>
-    
-    </selected_code>
+        </form>
+        
+    </section>
+
+    <footer class="footer fade-in">
+       <div class="footer-text">
+            <p>Copyright &copy; 2025 by Mohammad | All Rights Reserved.</p>
+            </div>
+            <div class="footer-iconTop zoom-in">
+             <a href=""><i class='bx bx-up-arrow-alt'></i></a>
+            </div>
+            
+    </footer>
+
+      
+    <script src="script.js"></script>
+</body>
+</html>
