@@ -1,12 +1,69 @@
 // Professional Loader
 window.addEventListener('load', function() {
     const loader = document.getElementById('loader');
+    const loaderParticles = document.getElementById('loaderParticles');
+    const loaderText = document.getElementById('loaderText');
+    const progressFill = document.getElementById('progressFill');
+    const progressText = document.getElementById('progressText');
+    const loaderLogoImg = document.getElementById('loaderLogoImg');
+    
+    // Particles removed for cleaner look
+    
+    // Loading messages
+    const loadingMessages = [
+        'Loading...',
+        'Preparing...',
+        'Almost ready...',
+        'Welcome...'
+    ];
+    
+    let messageIndex = 0;
+    let progress = 0;
+    
+    // Update loading text
+    function updateLoadingText() {
+        loaderText.style.opacity = '0';
+        setTimeout(() => {
+            loaderText.textContent = loadingMessages[messageIndex];
+            loaderText.style.opacity = '1';
+            messageIndex = (messageIndex + 1) % loadingMessages.length;
+        }, 300);
+    }
+    
+    // Update progress
+    function updateProgress() {
+        if (progress < 100) {
+            progress += Math.random() * 8; // Smaller increments for smoother progress
+            if (progress > 100) progress = 100;
+            
+            progressFill.style.width = progress + '%';
+            progressText.textContent = Math.round(progress) + '%';
+        }
+    }
+    
+    // Animate logo
+    function animateLogo() {
+        if (loaderLogoImg) {
+            loaderLogoImg.style.transform = 'scale(1.1)';
+            setTimeout(() => {
+                loaderLogoImg.style.transform = 'scale(1)';
+            }, 200);
+        }
+    }
+    
+    // Start animations
+    updateLoadingText();
+    setInterval(updateLoadingText, 2000);
+    setInterval(updateProgress, 150); // Slower updates for smoother progress
+    setInterval(animateLogo, 3000);
+    
+    // Hide loader after 3 seconds
     setTimeout(() => {
         loader.classList.add('fade-out');
         setTimeout(() => {
             loader.style.display = 'none';
         }, 500);
-    }, 2000);
+    }, 3000);
 });
 
 const canvas = document.createElement('canvas');

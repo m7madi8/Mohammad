@@ -28,9 +28,23 @@
 <body>
     <!-- Professional Loader -->
     <div class="loader" id="loader">
+        <div class="loader-particles" id="loaderParticles"></div>
         <div class="loader-content">
-            <div class="loader-spinner"></div>
-            <div class="loader-text">Loading...</div>
+            <div class="loader-logo">
+                <img src="logo.png" alt="Logo" class="loader-logo-img" id="loaderLogoImg">
+            </div>
+            <div class="loader-spinner">
+                <div class="spinner-ring spinner-ring-1"></div>
+                <div class="spinner-ring spinner-ring-2"></div>
+                <div class="spinner-ring spinner-ring-3"></div>
+            </div>
+            <div class="loader-text" id="loaderText"></div>
+            <div class="loader-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <span class="progress-text" id="progressText">0%</span>
+            </div>
         </div>
     </div>
 
