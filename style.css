@@ -1612,6 +1612,16 @@ body.fade-out {
     grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
     gap: 3rem;
     padding: 0 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Limit card width on large screens */
+@media (min-width: 1200px) {
+    .certificates-container {
+        grid-template-columns: repeat(auto-fit, minmax(380px, 500px));
+        justify-content: center;
+    }
 }
 
 /* Modern Certificate Card Design */
@@ -1638,6 +1648,7 @@ body.fade-out {
     overflow: hidden;
     height: auto;
     min-height: 240px;
+    max-height: 300px;
 }
 
 .certificate-image img {
@@ -1800,6 +1811,22 @@ body.fade-out {
     
     .certificate-description {
         font-size: 1.2rem;
+    }
+}
+
+/* Additional improvements for very large screens */
+@media (min-width: 1400px) {
+    .certificates-container {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 450px));
+        gap: 4rem;
+    }
+    
+    .certificate-card {
+        max-width: 450px;
+    }
+    
+    .certificate-image {
+        max-height: 280px;
     }
 }
 
