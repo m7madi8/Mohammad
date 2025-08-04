@@ -708,6 +708,21 @@ a, button, input, textarea, select, [role="button"], [tabindex] {
 }
 
 /* Responsive Enhancements */
+@media (max-width: 500px) {
+    .btn-box {
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .btn-box .btn {
+        padding: 1rem 2rem;
+        font-size: 1.3rem;
+        width: 100%;
+        max-width: 250px;
+    }
+}
+
 @media (max-width: 480px) {
     .header {
         padding: 1.2rem 3%;
@@ -756,6 +771,8 @@ a, button, input, textarea, select, [role="button"], [tabindex] {
     .btn-box {
         gap: 1rem;
         justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
     .btn-box .btn {
         padding: 1rem 2rem;
@@ -945,6 +962,8 @@ section{
         flex-direction: column;
         width: 100%;
         gap: 1.5rem;
+        justify-content: center;
+        align-items: center;
     }
     .btn-box .btn {
         padding: 1.2rem 2.4rem;
@@ -1025,6 +1044,8 @@ section{
     justify-content: center;
     gap: 1.5rem;
     z-index: 2;
+    /* Ensure no rotation animations on the container */
+    animation: none !important;
 }
 
 .home-sci a{
@@ -1065,6 +1086,10 @@ section{
     -ms-user-select: none;
     user-select: none;
     outline: none;
+    /* Ensure no rotation animations */
+    animation: none !important;
+    transform: none !important;
+    transition: none !important;
 }
 
 .home-sci a i:hover {
@@ -1075,6 +1100,9 @@ section{
     -ms-user-select: none;
     user-select: none;
     outline: none;
+    /* Ensure no rotation on hover */
+    animation: none !important;
+    transform: none !important;
 }
 
 .about{
