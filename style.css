@@ -1713,7 +1713,7 @@ body.fade-out {
     gap: 0.5rem;
     padding: 1rem 2rem;
     background: var(--main-color);
-    color: var(--bg-color);
+    color: #000000;
     border-radius: 0.5rem;
     font-size: 1.4rem;
     font-weight: 600;
@@ -2020,7 +2020,7 @@ body.fade-out {
     gap: 0.8rem;
     padding: 1rem 1.8rem;
     background: rgba(255, 255, 255, 0.95);
-    color: #1a1a1a;
+    color: #000000 !important;
     text-decoration: none;
     border-radius: 12px;
     font-size: 1.4rem;
@@ -2067,7 +2067,7 @@ body.fade-out {
 
 .project-link i {
     font-size: 1.6rem;
-    color: #1a1a1a;
+    color: #000000 !important;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
