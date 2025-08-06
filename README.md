@@ -11,7 +11,9 @@ A modern, responsive personal portfolio website showcasing my skills, projects, 
 - **Project Showcase**: Display of latest projects with live links
 - **Skills Visualization**: Progress bars showing technical skills
 - **Education Timeline**: Professional journey and experience timeline
-- **Certificate Display**: Showcase of professional certifications
+- **Enhanced Certificate System**: Dedicated certificates page with interactive cards
+- **Professional Loader**: Elegant loading screen with progress animation
+- **Smooth Animations**: CSS animations and JavaScript interactions
 
 ## 🛠️ Technologies Used
 
@@ -26,14 +28,16 @@ A modern, responsive personal portfolio website showcasing my skills, projects, 
 ```
 My Website - Pro/
 ├── index.html          # Main HTML file
+├── certificates.html   # Dedicated certificates page
 ├── style.css           # Stylesheet
 ├── script.js           # JavaScript functionality
 ├── README.md           # Project documentation
 ├── .gitignore          # Git ignore file
 ├── 1.png              # Profile image
-├── jazz.mp3           # Background music
+├── logo.png           # Website logo
 ├── projects1.png      # Project screenshot
 ├── projects2.png      # Project screenshot
+├── rawan.png          # Project screenshot
 ├── Certificates/      # Certificate images
 │   └── meta1.png
 └── project1/          # Additional project assets
@@ -57,8 +61,17 @@ My Website - Pro/
 3. **Skills**: Technical and professional skills with progress indicators
 4. **Projects**: Portfolio of completed projects
 5. **Education**: Academic and professional journey
-6. **Certificates**: Professional certifications
+6. **Certificates**: Professional certifications with dedicated page
 7. **Contact**: Contact form and information
+
+## 🏆 Certificate System
+
+The portfolio features an enhanced certificate system with:
+- **Interactive Cards**: Clickable certificate cards with hover effects
+- **Dedicated Page**: Separate `certificates.html` page for detailed view
+- **Meta Integration**: Direct links to verify certificates on Coursera
+- **Responsive Design**: Optimized for all devices
+- **Smooth Animations**: Elegant transitions and hover effects
 
 ## 🔗 Live Projects
 

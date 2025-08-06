@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Certificates - Mohammad</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="shortcut icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        /* Certificates Page Specific Styles - Dark Theme */
+        .certificates-page {
+            min-height: 100vh;
+            background: #0a0a0a;
+            padding-top: 100px;
+            position: relative;
+        }
+
+        .certificates-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, rgba(64, 64, 64, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(64, 64, 64, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .certificates-header {
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .certificates-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 70%, rgba(128, 128, 128, 0.05) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .certificates-header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .certificates-header h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .certificates-header h1 span {
+            color: #e0e0e0;
+            position: relative;
+        }
+
+        .certificates-header h1 span::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(135deg, #e0e0e0 0%, #b0b0b0 100%);
+            border-radius: 1px;
+            animation: underlineGlow 2s ease-in-out infinite alternate;
+        }
+
+        .certificates-header p {
+            font-size: 1.8rem;
+            color: #a0a0a0;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 120px;
+            left: 30px;
+            z-index: 1000;
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            color: #e0e0e0;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(224, 224, 224, 0.1);
+        }
+
+        .back-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            border-radius: 50px;
+            z-index: -1;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(135deg, #3a3a3a 0%, #2a2a2a 100%);
+            border-color: rgba(224, 224, 224, 0.2);
+        }
+
+        .back-button:hover::before {
+            transform: scale(1.05);
+        }
+
+        .back-button i {
+            font-size: 1.6rem;
+            transition: transform 0.3s ease;
+        }
+
+        .back-button:hover i {
+            transform: translateX(-3px);
+        }
+
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 3rem;
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .certificate-item {
+            background: #1a1a1a;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #333333;
+            position: relative;
+        }
+
+        .certificate-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(224, 224, 224, 0.03) 0%, rgba(224, 224, 224, 0.01) 100%);
+            border-radius: 20px;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .certificate-item:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            border-color: #e0e0e0;
+        }
+
+        .certificate-item:hover::before {
+            opacity: 1;
+        }
+
+        .certificate-image-container {
+            position: relative;
+            height: auto;
+            min-height: 400px;
+            overflow: hidden;
+            background: #2a2a2a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .certificate-image-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.2) 0%, transparent 50%);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .certificate-item:hover .certificate-image-container::before {
+            opacity: 1;
+        }
+
+        .certificate-image-container img {
+            width: 100%;
+            height: auto;
+            max-height: 600px;
+            object-fit: contain;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 10px;
+            margin: 1rem;
+        }
+
+        .certificate-item:hover .certificate-image-container img {
+            transform: scale(1.02);
+        }
+
+        .certificate-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.3) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 2;
+        }
+
+        .certificate-item:hover .certificate-overlay {
+            opacity: 1;
+        }
+
+        .certificate-actions {
+            display: flex;
+            gap: 1.5rem;
+            transform: translateY(20px);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .certificate-item:hover .certificate-actions {
+            transform: translateY(0);
+        }
+
+        .certificate-btn {
+            padding: 1.2rem 2.2rem;
+            background: linear-gradient(135deg, #e0e0e0 0%, #b0b0b0 100%);
+            color: #000;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.4rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certificate-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .certificate-btn:hover::before {
+            left: 100%;
+        }
+
+        .certificate-btn:hover {
+            background: linear-gradient(135deg, #f0f0f0 0%, #d0d0d0 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .certificate-btn i {
+            font-size: 1.6rem;
+            transition: transform 0.3s ease;
+        }
+
+        .certificate-btn:hover i {
+            transform: scale(1.1);
+        }
+
+        .certificate-content {
+            padding: 3rem;
+            position: relative;
+            z-index: 2;
+            background: #1a1a1a;
+        }
+
+        .certificate-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #e0e0e0 0%, #b0b0b0 100%);
+            color: #000;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certificate-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .certificate-item:hover .certificate-badge::before {
+            left: 100%;
+        }
+
+        .certificate-title {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+            position: relative;
+        }
+
+        .certificate-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #e0e0e0 0%, #b0b0b0 100%);
+            transition: width 0.4s ease;
+        }
+
+        .certificate-item:hover .certificate-title::after {
+            width: 100%;
+        }
+
+        .certificate-description {
+            font-size: 1.6rem;
+            color: #a0a0a0;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .certificate-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .certificate-detail {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.4rem;
+            color: #a0a0a0;
+            padding: 0.8rem 1.2rem;
+            background: rgba(224, 224, 224, 0.03);
+            border-radius: 10px;
+            border: 1px solid rgba(224, 224, 224, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .certificate-detail:hover {
+            background: rgba(224, 224, 224, 0.08);
+            border-color: #e0e0e0;
+            transform: translateY(-2px);
+        }
+
+        .certificate-detail i {
+            color: #e0e0e0;
+            font-size: 1.6rem;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 8rem 2rem;
+            color: #a0a0a0;
+            grid-column: 1 / -1;
+        }
+
+        .empty-state i {
+            font-size: 10rem;
+            color: #e0e0e0;
+            margin-bottom: 3rem;
+            opacity: 0.3;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .empty-state h3 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+        }
+
+        .empty-state p {
+            font-size: 1.8rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Animation for certificate items */
+        .certificate-item {
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .certificate-item:nth-child(1) { animation-delay: 0.1s; }
+        .certificate-item:nth-child(2) { animation-delay: 0.2s; }
+        .certificate-item:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @media (max-width: 768px) {
+            .certificates-header {
+                padding: 4rem 1.5rem 3rem;
+            }
+
+            .certificates-header h1 {
+                font-size: 3.5rem;
+            }
+
+            .certificates-header p {
+                font-size: 1.6rem;
+            }
+
+            .certificates-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+                padding: 3rem 1.5rem;
+            }
+
+            .back-button {
+                position: relative;
+                top: auto;
+                left: auto;
+                margin: 2rem;
+                display: inline-flex;
+            }
+
+            .certificate-content {
+                padding: 2.5rem;
+            }
+
+            .certificate-title {
+                font-size: 2rem;
+            }
+
+            .certificate-description {
+                font-size: 1.4rem;
+            }
+
+            .certificate-image-container {
+                min-height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .certificates-header {
+                padding: 3rem 1rem 2rem;
+            }
+
+            .certificates-header h1 {
+                font-size: 2.8rem;
+            }
+
+            .certificates-header p {
+                font-size: 1.4rem;
+            }
+
+            .certificate-image-container {
+                min-height: 250px;
+            }
+
+            .certificate-content {
+                padding: 2rem;
+            }
+
+            .certificate-title {
+                font-size: 1.8rem;
+            }
+
+            .certificate-description {
+                font-size: 1.3rem;
+            }
+
+            .certificate-details {
+                gap: 1rem;
+            }
+
+            .certificate-detail {
+                font-size: 1.2rem;
+                padding: 0.6rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Back Button -->
+    <a href="index.html" class="back-button">
+        <i class='bx bx-arrow-back'></i>
+        Back to Portfolio
+    </a>
+
+    <!-- Certificates Page -->
+    <div class="certificates-page">
+        <!-- Header -->
+        <header class="certificates-header">
+            <div class="certificates-header-content">
+                <h1>My <span>Certificates</span></h1>
+                <p>Explore my professional achievements and educational milestones that showcase my expertise in web development and design.</p>
+            </div>
+        </header>
+
+        <!-- Certificates Grid -->
+        <div class="certificates-grid">
+            <!-- Meta Certificate -->
+            <div class="certificate-item">
+                <div class="certificate-image-container">
+                    <img src="Certificates/meta1.png" alt="Meta Frontend Development Certificate">
+                    <div class="certificate-overlay">
+                        <div class="certificate-actions">
+                            <a href="https://www.coursera.org/account/accomplishments/verify/FCDVBCLSOV4E?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=pdf_header_button&utm_product=course" target="_blank" class="certificate-btn">
+                                <i class='bx bx-link-external'></i>
+                                Verify
+                            </a>
+                            <a href="Certificates/meta1.png" target="_blank" class="certificate-btn">
+                                <i class='bx bx-image'></i>
+                                View
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="certificate-content">
+                    <div class="certificate-badge">Meta</div>
+                    <h3 class="certificate-title">Introduction to Front-End Development</h3>
+                    <p class="certificate-description">Comprehensive course covering HTML, CSS, JavaScript, and responsive web design principles. Learned modern frontend development practices and best coding standards.</p>
+                    <div class="certificate-details">
+                        <div class="certificate-detail">
+                            <i class='bx bx-time'></i>
+                            <span>19 Hours</span>
+                        </div>
+                        <div class="certificate-detail">
+                            <i class='bx bx-star'></i>
+                            <span>4.8/5 Rating</span>
+                        </div>
+                        <div class="certificate-detail">
+                            <i class='bx bx-user'></i>
+                            <span>13,089 Students</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Placeholder for future certificates -->
+            <div class="certificate-item">
+                <div class="certificate-image-container">
+                    <div style="display: flex; align-items: center; justify-content: center; height: 100%; background: #2a2a2a;">
+                        <i class='bx bx-plus' style="font-size: 5rem; color: #666;"></i>
+                    </div>
+                </div>
+                <div class="certificate-content">
+                    <div class="certificate-badge">Coming Soon</div>
+                    <h3 class="certificate-title">More Certificates</h3>
+                    <p class="certificate-description">I'm continuously learning and adding new certifications to my portfolio. Stay tuned for more achievements!</p>
+                    <div class="certificate-details">
+                        <div class="certificate-detail">
+                            <i class='bx bx-time'></i>
+                            <span>In Progress</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+        });
+
+        // Enhanced hover effects for certificate items
+        document.querySelectorAll('.certificate-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-12px)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Add scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.certificate-item').forEach(item => {
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html> 

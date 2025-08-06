@@ -337,14 +337,14 @@
         <div class="heading-underline"></div>
         
         <div class="certificates-container">
-            <div class="certificate-card">
+            <div class="certificate-card" onclick="window.open('certificates.html', '_blank')" style="cursor: pointer;">
                 <div class="certificate-image">
                     <img src="Certificates/meta1.png" alt="Meta Frontend Development Certificate" style="pointer-events: none; user-select: none;">
                     <div class="certificate-overlay">
                         <div class="certificate-links">
-                            <a href="https://www.coursera.org/account/accomplishments/verify/FCDVBCLSOV4E?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=pdf_header_button&utm_product=course" target="_blank" class="certificate-link">
-                                <i class='bx bx-link-external'></i>
-                                <span>Verify Certificate</span>
+                            <a href="certificates.html" class="certificate-link" onclick="event.stopPropagation()">
+                                <i class='bx bx-collection'></i>
+                                <span>View All Certificates</span>
                             </a>
                         </div>
                     </div>
@@ -353,8 +353,19 @@
                     <div class="certificate-category">Meta</div>
                     <h3 class="certificate-title">Introduction to Front-End Development</h3>
                     <p class="certificate-description">Completed the Meta Front-End Development course on Coursera. Learned HTML, CSS, JavaScript, Bootstrap, and responsive web design. Course duration: 19 hours with 4.8/5 rating from 13,089 students.</p>
+                    <div class="certificate-preview-text">
+                        <i class='bx bx-info-circle'></i>
+                        <span>Click to view all certificates and achievements</span>
+                    </div>
                 </div>
             </div>
+        </div>
+        
+        <div class="certificates-cta">
+            <a href="certificates.html" class="btn certificates-btn">
+                <i class='bx bx-trophy'></i>
+                View All Certificates
+            </a>
         </div>
     </section>
 

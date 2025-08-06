@@ -803,3 +803,48 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // Interactive cursor effect removed for cleaner experience
+
+// Enhanced certificate interactions
+document.addEventListener("DOMContentLoaded", function() {
+    // Enhanced certificate card interactions
+    document.querySelectorAll('.certificate-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-8px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+
+        // Add click sound effect (optional)
+        card.addEventListener('click', function() {
+            // Create a subtle click effect
+            this.style.transform = 'translateY(-8px) scale(0.98)';
+            setTimeout(() => {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            }, 100);
+        });
+    });
+
+    // Smooth scroll for certificate CTA button
+    document.querySelectorAll('.certificates-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = this.getAttribute('href');
+            if (target === 'certificates.html') {
+                window.open(target, '_blank');
+            }
+        });
+    });
+
+    // Add certificate preview text animation
+    document.querySelectorAll('.certificate-preview-text').forEach(text => {
+        text.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.05)';
+        });
+        
+        text.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+        });
+    });
+});
