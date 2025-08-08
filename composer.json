@@ -1,0 +1,10 @@
+{
+  "name": "portfolio/contact-mailer",
+  "description": "Contact form backend using PHPMailer",
+  "type": "project",
+  "require": {
+    "phpmailer/phpmailer": "^6.9"
+  }
+}
+
+

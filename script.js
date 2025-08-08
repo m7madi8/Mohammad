@@ -415,33 +415,85 @@ elements.forEach(element => {
 document.addEventListener("DOMContentLoaded", function() {
     const form = document.getElementById('contact-form');
     const formMessage = document.getElementById('form-message');
+    const submitBtn = document.getElementById('contact-submit');
 
-    form.addEventListener('submit', function(event) {
+    if (!form) return;
+
+    function setMessage(type, text) {
+        if (!formMessage) return;
+        formMessage.className = `form-message ${type}`;
+        formMessage.textContent = text;
+        formMessage.style.display = 'block';
+    }
+
+    function validateEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+    }
+
+    function validatePhone(phone) {
+        return /^[+()\-\d\s]{7,20}$/.test(phone);
+    }
+
+    form.addEventListener('submit', async function(event) {
         event.preventDefault();
 
         const formData = new FormData(form);
+        const payload = {
+            name: (formData.get('name') || '').toString().trim(),
+            email: (formData.get('email') || '').toString().trim(),
+            phone: (formData.get('phone') || '').toString().trim(),
+            subject: (formData.get('subject') || '').toString().trim(),
+            message: (formData.get('message') || '').toString().trim(),
+            hp_field: (formData.get('hp_field') || '').toString().trim()
+        };
 
-        fetch(form.action, {
-            method: form.method,
-            headers: {
-                'Accept': 'application/json'
-            },
-            body: formData
-        })
-        .then(response => {
-            if (response.ok) {
+        // Basic client-side validation
+        if (!payload.name || payload.name.length < 2) {
+            return setMessage('error', 'Please enter a valid name.');
+        }
+        if (!validateEmail(payload.email)) {
+            return setMessage('error', 'Please enter a valid email address.');
+        }
+        if (!validatePhone(payload.phone)) {
+            return setMessage('error', 'Please enter a valid phone number.');
+        }
+        if (!payload.subject || payload.subject.length < 3) {
+            return setMessage('error', 'Please enter a subject (min 3 characters).');
+        }
+        if (!payload.message || payload.message.length < 10) {
+            return setMessage('error', 'Please enter a message (min 10 characters).');
+        }
+        if (payload.hp_field) {
+            // Bot detected, pretend success
+            form.reset();
+            return setMessage('success', 'Thank you! Your message has been sent.');
+        }
+
+        // Submit
+        submitBtn && (submitBtn.disabled = true);
+        setMessage('info', 'Sending...');
+        try {
+            const response = await fetch(form.action || 'send_mail.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                body: JSON.stringify(payload)
+            });
+            const data = await response.json().catch(() => ({ success: false, message: 'Unexpected server response.' }));
+            if (response.ok && data && data.success) {
                 form.reset();
-                formMessage.style.display = 'block';
-                formMessage.textContent = 'Message sent successfully!';
+                setMessage('success', data.message || 'Message sent successfully!');
             } else {
-                formMessage.style.display = 'block';
-                formMessage.textContent = 'Failed to send message. Please try again later.';
+                setMessage('error', (data && data.message) || 'Failed to send message. Please try again later.');
             }
-        })
-        .catch(error => {
-            formMessage.style.display = 'block';
-            formMessage.textContent = 'Failed to send message. Please try again later.';
-        });
+        } catch (e) {
+            setMessage('error', 'Network error. Please try again later.');
+        } finally {
+            submitBtn && (submitBtn.disabled = false);
+        }
     });
 });
 

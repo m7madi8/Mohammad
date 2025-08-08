@@ -401,8 +401,7 @@
         <h2 class="heading slide-in-left">Contact <span>Me</span></h2>
         <div class="heading-underline"></div>
 
-        <form target="_blank" id="contact-form" action="https://formspree.io/f/xanyzgde"
-        method="POST">
+        <form id="contact-form" action="send_mail.php" method="POST" novalidate>
             <div class="input-box">
                 <div class="input-field fade-in">
                     <input type="text" name="name" placeholder="Full Name" required>
@@ -428,9 +427,12 @@
                 <textarea name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
                 <span class="focus"></span>
             </div>
+            <!-- Honeypot field to deter bots -->
+            <input type="text" name="hp_field" id="hp_field" autocomplete="off" tabindex="-1" aria-hidden="true" style="display:none">
             <div class="btn-box btns fade-in">
-                <button type="submit" class="btn">Submit</button>
+                <button type="submit" class="btn" id="contact-submit">Submit</button>
             </div>
+            <div id="form-message" class="form-message" role="alert" aria-live="polite" style="display:none"></div>
             
         </form>
         

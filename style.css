@@ -1557,6 +1557,22 @@ input[type="number"] {
     outline: none;
 }
 
+/* Form message styles */
+.form-message {
+    max-width: 70rem;
+    margin: 1rem auto 0;
+    padding: 1.2rem 1.6rem;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    border: 1px solid rgba(224,224,224,0.2);
+    background: rgba(224,224,224,0.05);
+    color: var(--text-color);
+}
+.form-message.info { border-color: rgba(176,176,176,0.4); color: var(--text-light); }
+.form-message.success { border-color: #1e7e34; background: rgba(40,167,69,0.12); color: #b8ffcc; }
+.form-message.error { border-color: #8b2b2b; background: rgba(255,0,0,0.08); color: #ffb3b3; }
+
 .footer {
     display: flex;
     justify-content: space-between;
