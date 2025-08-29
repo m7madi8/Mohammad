@@ -31,6 +31,16 @@
     --shadow-1: 0 4px 6px -1px rgba(224, 224, 224, 0.1);
     --shadow-2: 0 10px 15px -3px rgba(224, 224, 224, 0.15);
     --shadow-3: 0 20px 25px -5px rgba(224, 224, 224, 0.2);
+    /* Unified button palette */
+    --btn-color-1: #00e5ff;
+    --btn-color-2: #00bcd4;
+    --btn-text-dark: #001014;
+    --btn-shadow: 0 10px 20px rgba(0, 229, 255, 0.15);
+    /* Neutral (light gray) palette for buttons */
+    --btn-neutral-bg: #f2f2f2;
+    --btn-neutral-border: #e6e6e6;
+    --btn-neutral-hover: #eaeaea;
+    --btn-neutral-text: #000000;
 }
 
 html{
@@ -786,7 +796,7 @@ a, button, input, textarea, select, [role="button"], [tabindex] {
             bottom: auto;
             left: auto;
             transform: none;
-            margin: 0 auto;
+            margin: 1.6rem auto 0; /* increased spacing below button */
             gap: 1rem;
         }
         .home-sci a {
@@ -808,7 +818,7 @@ section{
     padding: 120px 9% 0 9%;  /* Added top padding to account for fixed header */
     position: relative;
     background: var(--gradient-2);
-    min-height: 100vh; /* Ensure full viewport height */
+    min-height: 110vh; /* Ensure full viewport height */
     gap: 2rem;
 }
 
@@ -862,21 +872,12 @@ section{
     color: var(--main-color);
     font-weight: 600;
     letter-spacing: 2px;
-    text-shadow: 0 0 20px rgba(224, 224, 224, 0.3);
-    animation: elegantGlow 3s ease-in-out infinite;
+    text-shadow: none;
+    animation: none;
 }
 
 .elegant-title::before {
-    content: '';
-    position: absolute;
-    top: -5px;
-    left: -10px;
-    right: -10px;
-    bottom: -5px;
-    background: linear-gradient(135deg, rgba(224, 224, 224, 0.05), rgba(176, 176, 176, 0.05));
-    border-radius: 15px;
-    z-index: -1;
-    animation: elegantPulse 4s ease-in-out infinite;
+    content: none;
 }
 
 .elegant-title::after {
@@ -964,6 +965,7 @@ section{
         gap: 1.5rem;
         justify-content: center;
         align-items: center;
+        margin-bottom: 5rem; /* Prevent overlap with icons */
     }
     .btn-box .btn {
         padding: 1.2rem 2.4rem;
@@ -972,6 +974,7 @@ section{
     .home-sci {
         width: 120px;
         gap: 1.5rem;
+        margin-top: 1.5rem; /* Add spacing from buttons */
     }
     .home-sci a {
         width: 40px;
@@ -1001,6 +1004,17 @@ section{
     -ms-user-select: none;
     user-select: none;
     outline: none;
+}
+
+/* Higher-contrast primary buttons in Home section */
+.home .btn-box .btn {
+    background: var(--btn-neutral-bg);
+    color: var(--btn-neutral-text);
+    border: 1px solid var(--btn-neutral-border);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+.home .btn-box .btn:hover {
+    background: var(--btn-neutral-hover);
 }
 
 .btn-box .btn::before {
@@ -1034,11 +1048,19 @@ section{
     color: var(--text-color);
 }
 
+/* Higher-contrast outline button variant for Home section */
+.home .btn-box .btn:nth-child(2) {
+    background: var(--btn-neutral-bg);
+    border: 1px solid var(--btn-neutral-border);
+    color: var(--btn-neutral-text);
+}
+.home .btn-box .btn:nth-child(2):hover {
+    background: var(--btn-neutral-hover);
+}
+
 .home-sci{
-    position: absolute;
-    bottom: 4rem;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
+    margin-top: 2rem; /* sit right under the button */
     width: 120px;
     display: flex;
     justify-content: center;
@@ -1055,12 +1077,12 @@ section{
     align-items: center;
     width: 48px;
     height: 48px;
-    background: rgba(224, 224, 224, 0.1);
-    border: 1px solid rgba(224, 224, 224, 0.2);
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.35);
     border-radius: 12px;
     font-size: 18px;
-    color: var(--main-color);
-    transition: all 0.3s ease;
+    color: #ffffff;
+    transition: none !important;
     backdrop-filter: blur(10px);
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
@@ -1072,10 +1094,10 @@ section{
 }
 
 .home-sci a:hover{
-    background: var(--main-color);
-    color: var(--text-color);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-2);
+    background: rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+    transform: none; /* keep icons fixed, no lift on hover */
+    box-shadow: none;
 }
 
 .home-sci a i {
@@ -1555,6 +1577,10 @@ input[type="number"] {
     -ms-user-select: none;
     user-select: none;
     outline: none;
+    background: var(--btn-neutral-bg);
+    color: var(--btn-neutral-text);
+    border: 1px solid var(--btn-neutral-border);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
 }
 
 /* Form message styles */
@@ -1642,7 +1668,7 @@ input[type="number"] {
 
 .footer-iconTop a i {
     font-size: 2rem;
-    color: var(--text-color);
+    color: #000000; /* black icon as requested */
     transition: color 0.3s;
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
@@ -1689,7 +1715,7 @@ body.fade-out {
         left: auto;
         transform: none;
         width: 150px;
-        margin: 0 auto;
+        margin: 1.5rem auto 0; /* stay fixed right below button */
         gap: 2rem;
     }
     .footer{
@@ -2235,8 +2261,8 @@ body.fade-out {
 }
 
 .certificates-btn {
-    background: linear-gradient(135deg, var(--main-color) 0%, var(--accent-color) 100%);
-    color: #000;
+    background: var(--btn-neutral-bg);
+    color: var(--btn-neutral-text);
     padding: 1.5rem 3rem;
     font-size: 1.6rem;
     font-weight: 600;
@@ -2246,6 +2272,7 @@ body.fade-out {
     align-items: center;
     gap: 1rem;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid var(--btn-neutral-border);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     position: relative;
     overflow: hidden;
@@ -2267,6 +2294,7 @@ body.fade-out {
 }
 
 .certificates-btn:hover {
+    background: var(--btn-neutral-hover);
     transform: translateY(-3px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 }
@@ -2580,16 +2608,16 @@ body.fade-out {
     align-items: center;
     gap: 0.8rem;
     padding: 1rem 1.8rem;
-    background: rgba(255, 255, 255, 0.95);
-    color: #000000 !important;
+    background: var(--btn-neutral-bg);
+    color: var(--btn-neutral-text) !important;
     text-decoration: none;
     border-radius: 12px;
     font-size: 1.4rem;
     font-weight: 600;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--btn-neutral-border);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -2620,15 +2648,15 @@ body.fade-out {
 }
 
 .project-link:hover {
-    background: #1a1a1a;
-    color: #ffffff;
+    background: var(--btn-neutral-hover);
+    color: var(--btn-neutral-text);
     transform: translateY(-3px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
 }
 
 .project-link i {
     font-size: 1.6rem;
-    color: #000000 !important;
+    color: var(--btn-neutral-text) !important;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
