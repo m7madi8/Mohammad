@@ -190,7 +190,7 @@
         .certificate-image-container {
             position: relative;
             height: auto;
-            min-height: 400px;
+            min-height: 450px;
             overflow: hidden;
             background: #2a2a2a;
             display: flex;
@@ -216,13 +216,23 @@
         }
 
         .certificate-image-container img {
-            width: 100%;
-            height: auto;
-            max-height: 600px;
+            width: auto;
+            max-width: 100%;
+            height: 100%;
+            max-height: none;
             object-fit: contain;
             transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             border-radius: 10px;
             margin: 1rem;
+        }
+
+        /* Ensure Meta2 image is fully visible (no cropping) */
+        .certificate-item img[src*="meta2"] {
+            width: 100%;
+            height: auto;
+            max-height: 100%;
+            object-fit: contain;
+            margin: 0;
         }
 
         .certificate-item:hover .certificate-image-container img {
@@ -499,7 +509,7 @@
             }
 
             .certificate-image-container {
-                min-height: 300px;
+                min-height: 350px;
             }
         }
 
@@ -517,7 +527,7 @@
             }
 
             .certificate-image-container {
-                min-height: 250px;
+                min-height: 280px;
             }
 
             .certificate-content {
@@ -595,6 +605,44 @@
                         <div class="certificate-detail">
                             <i class='bx bx-user'></i>
                             <span>13,089 Students</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Meta - Programming with JavaScript (Coursera) -->
+            <div class="certificate-item">
+                <div class="certificate-image-container">
+                    <img src="Certificates/meta2.png" alt="Meta - Programming with JavaScript Certificate">
+                    <div class="certificate-overlay">
+                        <div class="certificate-actions">
+                            <a href="https://coursera.org/share/e4251802f7356fb0a08bd6ef55e7153a" target="_blank" class="certificate-btn">
+                                <i class='bx bx-link-external'></i>
+                                Verify
+                            </a>
+                            <a href="Certificates/meta2.png" target="_blank" class="certificate-btn">
+                                <i class='bx bx-image'></i>
+                                View
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="certificate-content">
+                    <div class="certificate-badge">Meta</div>
+                    <h3 class="certificate-title">Programming with JavaScript</h3>
+                    <p class="certificate-description">Completed Meta's Programming with JavaScript on Coursera. Covered JS basics, objects & arrays, event-driven programming, and unit testing with Jest. Approx. 46 hours.</p>
+                    <div class="certificate-details">
+                        <div class="certificate-detail">
+                            <i class='bx bx-time'></i>
+                            <span>46 Hours</span>
+                        </div>
+                        <div class="certificate-detail">
+                            <i class='bx bx-star'></i>
+                            <span>4.7/5 Rating</span>
+                        </div>
+                        <div class="certificate-detail">
+                            <i class='bx bx-user'></i>
+                            <span>249,521 Students</span>
                         </div>
                     </div>
                 </div>
