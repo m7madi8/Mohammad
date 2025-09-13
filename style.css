@@ -2171,13 +2171,10 @@ body.fade-out {
     .certificates-container {
         grid-template-columns: 1fr;
         gap: 2rem;
-        justify-items: center;
     }
     
     .certificate-card {
         padding: 1.5rem;
-        width: 100%;
-        max-width: 500px;
     }
     
     .certificate-image {
@@ -2206,7 +2203,6 @@ body.fade-out {
 @media (max-width: 480px) {
     .certificates-container {
         gap: 1.5rem;
-        justify-items: center;
     }
     
     .certificate-image {
@@ -2215,10 +2211,6 @@ body.fade-out {
         padding: 0.6rem;
     }
     
-    .certificate-card {
-        max-width: 440px;
-    }
-
     .certificate-image img {
         max-height: 200px;
     }
